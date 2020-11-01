@@ -30,8 +30,14 @@ Některé objekty mohou mít explicitně přiřazené jméno, obecně označovan
 '''Úkol A'''
 #? Najděte na Internetu, jakými funkcemi lze v Pythonu zjistit
 #? a) typ objektu
+# a) type()
 #? b) identitu objektu (jeho adresu v paměti)
+# b) id()
 #? Ukažte to na příkladech proměnných students_count, rating, is_published a vypište výstupy do konzole
+print(type(students_count), id(students_count))
+print(type(rating), id(rating))
+print(type(is_published), id(is_published))
+
 
 # Numerické operátory
 # print(10 + 3)
@@ -66,13 +72,21 @@ hexadecimal = 0x12c #Hexadecimal Literal
 
 '''Úkol B'''
 #? Vypište do poznámky všechny bitové operátory, které nabízí Python
+# &, |, ^, ~, <<, >>
 #? Do proměnné myself_binary uložte binární číslo vytvořené na základě osmi prvních znaků z vašeho jména a příjmení (souhláska = 1, samohláska 0)
 #? Příklad - HildaDok: 10110101
+myself_binary = 11010110
 #? Vypište toto binární číslo v desítkové soustavě
+print(int(str(myself_binary), base=2))
 #? Pro toto binární číslo proveďte nejprve bitový posun o 2 bity vpravo, poté vypište výsledek v desítkové soustavě
+print(int(str(myself_binary), base=2) >> 2)
 #? Proveďte bitový součin hexadecimálního čísla "1A" a vašeho binárního čísla a opět vypište v desítkové soustavě
+soucin = int(str(myself_binary), base=2) & int('1A', base=16)
+print(soucin)
 #? Výsledek zobrazte jako formátovaný řetězec - např. "Binární součin čísla 0b11010 a 0b10110101 je 0b10000"
-
+hexa_to_int = int('1A', base=16)
+int_to_bin = bin(hexa_to_int)
+print("Binární součin čísla " + int_to_bin + " a " + '0b' + str(myself_binary) + " je " + bin(soucin))
 
 '''Python plně podporuje operace v plovoucí řádové čárce (tj. desetinná čísla). 
 Operátor pracující s různými typy operandů si nejprve zkonvertuje celá čísla na čísla 
@@ -88,7 +102,6 @@ float_2 = 1.5e2 # Zápis reálného čísla pomocí exponentu = 1.5 * (10 ** 2)
 # Použití vestavěných matematických funkcí
 # print(round(rating))
 # Použití importovaného modulu math a jeho metod
-import math
 # print(math.floor(rating))
 # print(math.cos(45))
 

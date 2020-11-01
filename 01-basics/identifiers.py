@@ -47,10 +47,10 @@ komentáře, proč byl identifikátor použit nesprávně. Navrhněte pod koment
 import_from = 'China'
 
 x = 0
-global = 1
+#global = 1  - global je klíčové slovo
 PI = 3.14
 city = "Opava"
-hilda@sspu-opava.cz = 'Hilda Dokonalá'
+#hilda@sspu-opava.cz = 'Hilda Dokonalá' - nesmí obsahovat symbol @, email = 'Hilda Dokonalá'
 password2 = 'TajneHeslo'
-007agent = 'James Bond'
+#007agent = 'James Bond' - nesmí začínat čísly, agent007 = 'James Bond'
 

@@ -75,3 +75,18 @@ Použijte vhodné moduly v Pythonu (včetně jejich případné instalace) k tom
 K řešení prvního úkolu je možné doporučit importovat interní modul datetime
 Řešení dalších dvou úkolů můžete odvodit z příkladů v dokumentaci k externímu modulu dateutil - viz https://pypi.org/project/python-dateutil/
 """
+
+import  datetime
+from dateutil.easter import *
+from dateutil.relativedelta import *
+from dateutil.rrule import *
+
+year = 2020
+today = datetime.datetime.now()
+rok = rrule(YEARLY,dtstart=today,bymonth=12,bymonthday=24,byweekday=SU)[0].year
+print("Dnesni datum je: %s " %today)
+for i in range(0,5):
+    year += 1
+    rdelta = relativedelta(easter(year), today)
+    print(today + rdelta)
+print("Dalsi vanoce v Nedeli jsou v roce %s " %rok)

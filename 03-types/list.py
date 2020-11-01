@@ -56,11 +56,11 @@ print(f'\tVypíše každý druhý prvek ze seznamu letters: {letters[::2]}')
 # ??? 1. cvičení ???
 # Doplňte podle zadání chybějící u následujících tří výpisů
 print('\n1. Cvičení\n***********************************************************************************************')
-print(f'\tVypíše poslední 2 prvky ze seznamu numbers: ???')
-print(f'\tVypíše každý sudý prvek ze seznamu letters: ???')
-print(f'\tVypíše všechny hodnoty z mixed_list kromě dvou posledních: ???')
-print(f'\tVypíše hodnotu prvku name ze slovníku umístěného v seznamu mixed_list: ???')
-print(f'\tVypíše hodnotu předposledního čísla z listu numbers umístěného v seznamu mixed_list: ???')
+print(f'\tVypíše poslední 2 prvky ze seznamu numbers: {numbers[-2:]}')
+print(f'\tVypíše každý sudý prvek ze seznamu letters: {letters[1::2]}')
+print(f'\tVypíše všechny hodnoty z mixed_list kromě dvou posledních: {mixed_list[:-2]}')
+print(f'\tVypíše hodnotu prvku name ze slovníku umístěného v seznamu mixed_list: {mixed_list[-1].get("name")}')
+print(f'\tVypíše hodnotu předposledního čísla z listu numbers umístěného v seznamu mixed_list: {mixed_list[3][1][5]}')
 print('***********************************************************************************************\n')
 # ??? Konec 1. cvičení ???
 
@@ -285,7 +285,29 @@ print(f'\tSbalení seznamů do proměnné values: {values}\n')
 from random import randint
 
 print(f'\n*************************************\nCvičení 2\n*************************************')
-
+import random
+import string
+#a)
+hundreds = []
+for x in range(1, 2001):
+    if x % 200 == 0: hundreds.append(x)
+print(f'a) {hundreds}')
+#b)
+ascii = []
+for i in range(50): ascii.append(random.choice(string.ascii_uppercase))
+print(f'b) {ascii}')
+#c)
+del hundreds[:3]
+del hundreds[-3:]
+print(f'c) {hundreds}')
+#d)
+unique = []
+for y in ascii:
+    if ascii.count(y) == 1: unique.append(y)
+print(f'd) {unique}')
+#e)
+combine = list(zip(hundreds, ascii))
+print(f'e) {combine}')
 
 
 # ??? 3. cvičení ???
@@ -298,3 +320,38 @@ print(f'\n*************************************\nCvičení 2\n******************
 # Záznamy budou seřazeny podle věku (sestupně).
 
 print(f'\n*************************************\nCvičení 3\n*************************************')
+import string
+#a)
+persons.append(('Jaroslav', 22, 'muž'))
+persons.append(('Miroslav', 58, 'muž'))
+persons.append(('Hana', 45, 'žena'))
+persons.append(('Veronika', 18, 'žena'))
+print(f'a) {persons}')
+#b)
+women = []
+women = list(filter(lambda item: item[2] == 'žena', persons))
+women = list(map(lambda item: item[0], women))
+for i in women:
+    print(i)
+    print(len(i) * '-')
+print("")
+women = [item for item in persons if item[2] == 'žena']
+women = [item[0] for item in women]
+for i in women:
+    print(i)
+    print(len(i) * '-')
+#c)
+ipeople = []
+ipeople = list(filter(lambda item: item[0].find("i") != -1, persons))
+ipeople.sort(key=lambda item: item[1], reverse=True)
+for index, i in enumerate(ipeople):
+    jmeno, vek, pohlavi = i
+    print(str(index + 1) + ';' + jmeno + ';' + str(vek) + ';' + pohlavi)
+
+print('')
+
+ipeople = [item for item in persons if item[0].find("i") != -1]
+ipeople.sort(key=lambda item: item[1], reverse=True)
+for index, i in enumerate(ipeople):
+    jmeno, vek, pohlavi = i
+    print(str(index + 1) + ';' + jmeno + ';' + str(vek) + ';' + pohlavi)

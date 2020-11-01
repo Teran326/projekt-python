@@ -50,3 +50,14 @@ aspoň jednu podmínku if a funkci print(). Dodržte správné odsazování kód
 Do konzole vypište nejprve docstring vaší funkce a potom zavolejte funkci samotnou.   
 """
 
+def i(num):
+    """
+    This function compares two numbers
+    """
+    for i in range(0,10):
+        if i < num:
+            print("%d" %i + " je mensi nez %d" %num)
+        else:
+            print("%d" %i + " je vetsi nez %d" %num)
+print(i.__doc__)
+i(5)

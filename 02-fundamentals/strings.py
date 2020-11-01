@@ -19,8 +19,10 @@ nepřevádí na odpovídající znaky.3.2. Raw řetězce charakterizuje předpon
 Potom řetězec r'\n' odpovídá dvěma znakům - zpětnému lomítku a znaku n, kdežto řetězec '\n' je jediný znak nového řádku:
 '''
 
+'''
 hello = r'Toto je dlouhý řetězec obsahující mnoho\n\
 řádek textu, stejně jej zapisujete i v C.'
+'''
 
 # print(hello)
 
@@ -158,3 +160,39 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+import random
+czech = '12.10.2020'
+x = czech.split('.')
+print(x[2] + '-' + x[1] + '-' + x[0])
+souslovi = input("ahoj: ")
+pocet_osob = input("Zadejte počet osob: ")
+
+def python_identifikator(souslovi):
+    x = souslovi.split()
+    python = x[0] + '_'
+    js = x[0].title()
+    for i in range(1, len(x)):
+        python += x[i] + '_'
+        js += x[i].title()
+    print(python[:-1].lower(), js)
+
+def osoby(po):
+    y = 0
+    velka_pismena = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    mala_pismena = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
+                     "u", "v", "w", "x", "y", "z"]
+    znak = ["+", "-", "/", "*", "@", "&", "#", "|", "=", "%", ";"]
+    while y != int(po):
+        osoba = random.choice(velka_pismena)
+        for i in range(2):
+            osoba += random.choice(velka_pismena)
+        for i in range(3):
+            osoba += random.choice(mala_pismena)
+        osoba += random.choice(znak)
+        for i in range(3):
+            osoba += str(random.randrange(1, 10))
+        print(osoba)
+        y+= 1
+
+python_identifikator(souslovi)
+osoby(pocet_osob)

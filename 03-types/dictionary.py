@@ -5,8 +5,8 @@ klíč (angl. key) a hodnotu (angl. value).
 Každému klíči je přiřazena jedna hodnota.
 '''
 
-# Collection which is unordered, changeable and indexed.
-# In Python dictionaries are written with curly brackets, and they have keys and values.
+# Sbírka ,která je neúspořádaná, proměnlivá a indexovaná.
+# Do Python slovníků se zapisuje do složených závorek, mají "klíč" a hodnotu. název = {'klíč': hodnota}
 car = {
   'brand': 'Ford',
   'model': 'Mustang',
@@ -94,3 +94,28 @@ child3          Linus               2011
 ---------------------------------------------
 Počet záznamů: 3
 '''
+filmy = {
+  'movie1':{
+    'name': 'Paradox_času',
+    'year': 2014
+  },
+  'movie2':{
+    'name': 'Ready_player_one',
+    'year': 2018
+  },
+  'movie3':{
+    'name': 'Alita',
+    'year': 2019
+  }
+}
+filmy.pop('movie1')
+filmy['movie1'] = {'name': 'Star_trek_film', 'year': '1979'}
+print('Moje oblíbené filmy')
+print('----------------------------------')
+print('Název filmu\tRok vydání')
+print('---------------------------------------------')
+print(filmy['movie1']['name'], '\t\t', filmy['movie1']['year'])
+print(filmy['movie2']['name'], '\t', filmy['movie2']['year'])
+print(filmy['movie3']['name'], '\t\t\t\t', filmy['movie3']['year'])
+print('----------------------------------------------')
+print('Počet záznamů: %d ' % len(filmy))
