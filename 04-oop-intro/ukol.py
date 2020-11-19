@@ -3,24 +3,24 @@ class Hello:
     username = 'Teran'
     favorite_number = 2
     def __init__(self, car, book, nmb):
-        self.car = str(car)
-        self.book = str(book)
+        self.car = car
+        self.book = book
         self.nmb = nmb
 
     def __str__(self):
         return f'({self.car}, {self.book}, {self.nmb})'
 
     def __eq__(self, other):
-        return self.car == self.book
+        return self.car == other.car
 
     def __gt__(self, other):
-        return self.favorite_number > self.nmb
+        return self.nmb > other.nmb
 
     def __add__(self, other):
-        return self.favorite_number + self.nmb
+        return self.nmb + other.nmb
 
     def __sub__(self, other):
-        return self.favorite_number - self.nmb
+        return self.nmb - other.nmb
 
     @staticmethod
     def random_number():
@@ -33,7 +33,7 @@ class Hello:
         slovo = ''
         for i in range(0, len(x)):
             slovo += x[i] + ' '
-        return (slovo)
+        return (slovo[:-1])
 
     def all(self):
         print(f'{self.favorite_number}, {self.username}, {self.car}, {self.book}, {self.nmb}, {self.random_number()}, {self.word()}')
@@ -41,12 +41,22 @@ class Hello:
     def only_numbers(self):
         print(f'{self.nmb}, {self.favorite_number}, {self.random_number()}')
 
+class Bye(Hello):
+    def __init__(self, car, book, nmb, boom, word):
+        super().__init__(car, book, nmb)
+        self.boom = boom
+        self.word = word
+
+    def __str__(self):
+        return f'({self.car}, {self.book}, {self.nmb}, {self.boom}, {self.word})'
 vse = Hello('Mustang', 'Zaklinac', 3)
+vse2 = Bye('Kia', 'Krysar', 1, 'booom', Hello.word())
 print(vse)
+print(vse2)
 vse.all()
 vse.only_numbers()
 print(type(vse))
-print(vse - vse)
-print(vse + vse)
-print(vse == vse)
-print(vse > vse)
+print(vse - vse2)
+print(vse + vse2)
+print(vse == vse2)
+print(vse > vse2)
